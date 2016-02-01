@@ -31,7 +31,7 @@ int main(int argc, char * argv[])
    
    if (argc !=4 )
    {
-      printf( "write wipertakes 1 argument,i2cbus,  pit number, pot the pot postion\n");
+      printf( "writewiper takes 1 argument,i2cbus,  pit number, pot the pot postion\n");
       printf( "The bus number for Raspberry Pi is 1, and for the other modules use i2c detect\n");
       return -1;
 
@@ -111,10 +111,12 @@ int main(int argc, char * argv[])
       return -1;
 
    }
+   //
+   //set the i2c slave address
+   //
 	if (ioctl(file_i2c, I2C_SLAVE, i2cAddress) < 0)
 	{
 		printf("Failed to acquire bus access and/or talk to slave.\n");
-		//ERROR HANDLING; you can check errno to see what went wrong
 		return;
 	}
 	
